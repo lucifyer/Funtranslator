@@ -9,16 +9,43 @@
 </head>
 <body>
 
-    <form action="curltranslator.php" method="GET">
+    <form >
         <label for="string">Enter your sentence in English<br></label>
-        <input type="text" name="string" ><br>
+        <input type="text" id="string" name="string" ><br>
         <label for="choice">Enter your choice</label>
-        <select class="" name="choice">
+        <select class="" id="choice" name="choice">
             <option value="minion">Minion</option>
             <option value="shakespeare">Shakespeare</option>
         </select><br>
-        <input type="submit" value="Translate">
+        <input type="button" onclick="loadresponse()" value='Translate'><br>
+        <hr><hr>
+
+
+        <label for="response">Translated Text:</label><br>
+        <input type="text"  name="response" id='response'>
     </form>
+
+
+    <script>
+
+    function loadresponse()
+    {
+        document.getElementById('string').value;
+        var address= 'curltranslator.php?string='+document.getElementById('string').value+'&choice='+document.getElementById('choice').value+'&response=';
+        var xhr= new XMLHttpRequest();
+        xhr.open('GET',address,true);
+
+        xhr.onload=function()
+        {
+            if(this.status==200)
+            {
+                var myobj=JSON.parse(this.responseText);
+                document.getElementById('response').value= myobj['contents']['translated'];
+            }
+        }
+        xhr.send();
+    }
+    </script>
 
 </body>
 </html>

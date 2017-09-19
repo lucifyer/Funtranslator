@@ -31,7 +31,6 @@ if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
 
-
 // $result = '{
 //     "success": {
 //         "total": 1
@@ -43,18 +42,25 @@ if (curl_errno($ch)) {
 //     }
 // }';
 
-$data = json_decode($result, TRUE);
-if(isset($data['error']['code']))
-{
-echo $data['error']['code'];
-echo $data['error']['message'];
-}
-else {
-    echo 'Your text: '.$data['contents']['text'];
-    echo 'Translated text: '.$data['contents']['translated'];
 
-    echo 'Translation: '.$data['contents']['translation'];
-}
+echo $result;
+
+
+
+
+// $data = json_decode($result, TRUE);
+// if(isset($data['error']['code']))
+// {
+// echo $data['error']['code'];
+// echo $data['error']['message'];
+// }
+// else {
+//     echo 'Your text: '.$data['contents']['text'];
+//     echo 'Translated text: '.$data['contents']['translated'];
+//     echo 'Translation: '.$data['contents']['translation'];
+// }
+//
+
 
 curl_close ($ch);
 
