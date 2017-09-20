@@ -45,7 +45,7 @@
         <footer class='text-center'>
             <hr>
             <blockquote>
-                This is a free service and depends on other services for translating. And is made only for testing. And the translations are capped at 5 per hour. An suggestions or messages are welcome
+                This is a free service and depends on other services for translating. And is made only for testing. And the translations are capped at 5 per hour. Any suggestions or messages are welcome
                 <a href="mailto:lucifyer777@gmail.com" target="_top">Here</a>
             </blockquote>
             <br>
