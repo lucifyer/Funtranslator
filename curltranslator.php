@@ -1,18 +1,12 @@
 <?php
-
+//Get the user entered string
 $text='text=';
 $text=$text.$_GET['string'];
+
+//Set the API URL to according to appropriate choice
 $choice=$_GET['choice'];
+$url='http://api.funtranslations.com/translate/'.$choice.'.json';
 
-switch ($choice) {
-    case 'minion':
-            $url='http://api.funtranslations.com/translate/minion.json';
-        break;
-
-    case 'shakespeare':
-            $url='http://api.funtranslations.com/translate/shakespeare.json';
-        break;
-}
 //
 // $ch = curl_init();
 //
@@ -27,10 +21,12 @@ switch ($choice) {
 // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 //
 // $result = curl_exec($ch);
+
 // if (curl_errno($ch)) {
 //     echo 'Error:' . curl_error($ch);
 // }
 
+//Sample successful return JSON object for testing
 // $result = '{
 //     "success": {
 //         "total": 1
@@ -42,34 +38,18 @@ switch ($choice) {
 //     }
 // }';
 
-
-$result='{
-    "error":{
-        "code": 2,
-        "message": "Number of tries exceeded!"
-    }
-}';
-
-
-echo $result;
-
-
-
-
-// $data = json_decode($result, TRUE);
-// if(isset($data['error']['code']))
-// {
-// echo $data['error']['code'];
-// echo $data['error']['message'];
-// }
-// else {
-//     echo 'Your text: '.$data['contents']['text'];
-//     echo 'Translated text: '.$data['contents']['translated'];
-//     echo 'Translation: '.$data['contents']['translation'];
-// }
+//Sample failed return JSON object for testing
+// $result='{
+//     "error":{
+//         "code": 2,
+//         "message": "Number of tries exceeded!"
+//     }
+// }';
 //
-
 //
+// echo $result;
+
+
 // curl_close ($ch);
 
 
