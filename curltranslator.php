@@ -13,23 +13,23 @@ switch ($choice) {
             $url='http://api.funtranslations.com/translate/shakespeare.json';
         break;
 }
-
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $text);
-curl_setopt($ch, CURLOPT_POST, 1);
-
-$headers = array();
-$headers[] = "X-Funtranslations-Api-Secret: <api_key>";
-$headers[] = "Content-Type: application/x-www-form-urlencoded";
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-$result = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-}
+//
+// $ch = curl_init();
+//
+// curl_setopt($ch, CURLOPT_URL, $url);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $text);
+// curl_setopt($ch, CURLOPT_POST, 1);
+//
+// $headers = array();
+// $headers[] = "X-Funtranslations-Api-Secret: <api_key>";
+// $headers[] = "Content-Type: application/x-www-form-urlencoded";
+// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+//
+// $result = curl_exec($ch);
+// if (curl_errno($ch)) {
+//     echo 'Error:' . curl_error($ch);
+// }
 
 // $result = '{
 //     "success": {
@@ -41,6 +41,14 @@ if (curl_errno($ch)) {
 //         "translation": "minion"
 //     }
 // }';
+
+
+$result='{
+    "error":{
+        "code": 2,
+        "message": "Number of tries exceeded!"
+    }
+}';
 
 
 echo $result;
@@ -61,8 +69,8 @@ echo $result;
 // }
 //
 
-
-curl_close ($ch);
+//
+// curl_close ($ch);
 
 
 

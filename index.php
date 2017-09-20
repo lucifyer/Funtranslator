@@ -40,7 +40,10 @@
             if(this.status==200)
             {
                 var myobj=JSON.parse(this.responseText);
-                document.getElementById('response').value= myobj['contents']['translated'];
+                if(myobj['error']['code'])
+                    alert(myobj['error']['message']);
+                else
+                    document.getElementById('response').value= myobj['contents']['translated'];
             }
         }
         xhr.send();
